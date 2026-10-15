@@ -1,0 +1,10 @@
+Index, Code, Name, Area (m2)
+1, AA0, Aspen forest, 8046176
+2, AA1, Pine forest, 1169277
+3, AA2, Beech forest with deciduous woods, 554158
+4, AB0, Douglas fir forest, 4729177
+5, AJ0, Mixed spruce forest with native deciduous woods, 3412143
+6, AJ1, Oak-beech forest, 586975
+7, AK0, Oak forest, 415864
+8, AL1, Spruce forest, 20862
+9, AS0, Beech forest, 213645

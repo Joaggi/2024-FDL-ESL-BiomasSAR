@@ -1,0 +1,57 @@
+name: sweep_gracegpu2_union_Lmono
+method: bayes
+metric:
+  goal: minimize
+  name: validation_loss
+parameters:
+  learning_rate:
+    distribution: uniform
+    min: 0.000001
+    max: 0.0001
+  batch_size:
+    distribution: q_uniform
+    min: 1
+    max: 35
+    q: 1
+  epochs:
+    min: 100
+    max: 200
+  polarimetric_channel:
+    value: "['HV', 'HH', 'VV']" 
+  batchnorm:
+    values: ['yes']
+  dropout_rate:
+    distribution: categorical
+    values: [0.0, 0.1, 0.2]
+  patch_stride_pair:
+    values:
+      # - patch_size: (32,32,36)
+      #   stride: (16,16,36)
+      - patch_size: (16,16,36)
+        stride: (8,8,36)
+  test_quadrant:
+    value: 3
+  scaler_type:
+    values: [ 'minmax']
+  model_name:
+    values: ['unet_resnet', 'simple_unet2']
+  true_bn_method:
+    value: 'Yess:)'
+  loss_fn:
+    value: 'mse'
+  z_collapse_method:
+    values:  ['progressive_z', 'conv', 'conv', 'global_avg_pool' ]
+  band_opt:
+    values: [ 'L_Mono']
+  exclude_height_thresh:
+    values: ['no']
+  save:
+    value: 'yes'
+  base_path:
+    value: '/home/grace.bcolverd/local_results/grace_gpu2'
+  early_stopping_metric:
+    values: ['rmse', 'mae']
+
+
+# Examples call
+# python run_sweeps.py  --project_name unet_Lband --num_runs 800 --config /home/grace.bcolverd/2024-ESL-BiomassSAR/src/sweep_configs/sweeps_Lband_height_union_pol.yaml

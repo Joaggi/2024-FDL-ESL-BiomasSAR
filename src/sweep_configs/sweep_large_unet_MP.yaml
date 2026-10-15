@@ -1,0 +1,48 @@
+name: sweep1
+method: bayes
+metric:
+  goal: minimize
+  name: validation_loss
+parameters:
+  learning_rate:
+    distribution: uniform
+    min: 0.000001
+    max: 0.001
+  batch_size:
+    distribution: q_uniform
+    min: 1
+    max: 35
+    q: 1
+  epochs:
+    min: 50
+    max: 200
+  polarimetric_channel:
+    values: ['HV', 'HH', 'VV']
+  batchnorm:
+    values: ['no', 'yes']
+  dropout_rate:
+    distribution: categorical
+    values: [0.0, 0.0, 0.0, 0.0, 0.1, 0.2, 0.4, 0.6, 0.8]
+  patch_stride_pair:
+    values:
+      - patch_size: (32,32,36)
+        stride: (16,16,36)
+      - patch_size: (16,16,36)
+        stride: (8,8,36)
+  test_quadrant:
+    value: 3
+  scaler_type:
+    values: ['standard', 'minmax']
+  model_name:
+    values: ['unet3d_mp']
+  true_bn_method:
+    value: 'Yess:)'
+  loss_fn:
+    value: 'mse'
+  z_collapse_method:
+    values:  ['progressive_z', 'conv', 'conv', 'global_avg_pool' ]
+  final_z_dim:
+    values: [36]
+  band_opt:
+    values: ['P']
+

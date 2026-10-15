@@ -1,4 +1,6 @@
 # general things to ignore
+fdl-2024/
+
 build/
 dist/
 *.egg-info/
@@ -148,3 +150,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+wandb/

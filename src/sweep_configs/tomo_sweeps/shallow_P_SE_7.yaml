@@ -1,0 +1,60 @@
+name: tomo_recon_P_SE_7_union_shalow
+method: bayes
+metric:
+  goal: minimize
+  name: validation_loss
+parameters:
+  learning_rate:
+    distribution: uniform
+    min: 0.00001
+    max: 0.001
+  batch_size:
+    distribution: q_uniform
+    min: 15
+    max: 50
+    q: 1
+  epochs:
+    min: 50
+    max: 200
+  polarimetric_channel:
+    value: ['HH' ,'HV', 'VV' ]
+  patch_stride_pair:
+    values:
+      - patch_size: (64, 64)
+        stride: (32,32)
+      - patch_size: (32,32)
+        stride: (16,16)
+      - patch_size: (16,16)
+        stride: (8,8)
+  scaler_type:
+    value:  'minmax'
+  loss_fn:
+    value: 'mse'
+  band_opt:
+    value: 'P'
+  kernel_size:
+    value: 10
+  early_stopping_patience:
+    value: 10
+  early_stopping_min_delta: 
+    value: 0.001
+  lr_patience:
+    value: 10
+  lr_factor:
+    value: 0.1
+  min_lr:
+    value: 1e-6
+  n_images:
+    value: 7
+  heading: 
+    value: 'SE'
+  model_name:
+    value: 'shallow_unet'
+  first_set_SLC:
+    value:  False
+  random_seed:
+    value:  42
+
+# Examples call
+# python train_tomo_recon.py  --project_name tomo_recon_height --num_runs 1 --config /home/grace.bcolverd/2024-ESL-BiomassSAR/src/sweep_configs/tomo_recon.yaml
+# python train_tomo_recon.py  --project_name tomo_recon_height --num_runs 400 --config /home/grace.bcolverd/2024-ESL-BiomassSAR/src/sweep_configs/tomo_recon.yaml

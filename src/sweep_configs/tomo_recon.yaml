@@ -1,0 +1,63 @@
+name: tomo_recon_P_NW_28
+method: bayes
+metric:
+  goal: minimize
+  name: validation_loss
+parameters:
+  learning_rate:
+    distribution: uniform
+    min: 0.00001
+    max: 0.001
+  batch_size:
+    distribution: q_uniform
+    min: 20
+    max: 50
+    q: 1
+  epochs:
+    min: 50
+    max: 200
+  polarimetric_channel:
+  #   values: ["['HV', 'HH', 'VV']" ,'HH' ,'HV' , 'VV']
+    values: [ 'VV']
+  batchnorm:
+    values: ['no', 'yes']
+  dropout_rate:
+    distribution: categorical
+    values: [0.0, 0.0, 0.0, 0.0, 0.1, 0.2, 0.4, 0.6, 0.8]
+  patch_stride_pair:
+    values:
+      # - patch_size: (64,64,84)
+      #   stride: (32,32,84)
+      - patch_size: (32,32)
+        stride: (16,16)
+      - patch_size: (16,16)
+        stride: (8,8)
+  scaler_type:
+    values: [ 'minmax']
+  loss_fn:
+    value: 'mse'
+  z_collapse_method:
+    values:  ['progressive_z', 'conv', 'conv', 'global_avg_pool' ]
+  band_opt:
+    value: 'P'
+  kernel_size:
+    value: 10
+  early_stopping_patience:
+    value: 10
+  early_stopping_min_delta: 
+    value: 0.001
+  lr_patience:
+    value: 10
+  lr_factor:
+    value: 0.1
+  min_lr:
+    value: 1e-6
+  n_images:
+    value: 4
+  heading: 
+    value: 'NW'
+
+        
+# Examples call
+# python train_tomo_recon.py  --project_name tomo_recon_height --num_runs 1 --config /home/grace.bcolverd/2024-ESL-BiomassSAR/src/sweep_configs/tomo_recon.yaml
+# python train_tomo_recon.py  --project_name tomo_recon_height --num_runs 100 --config /home/grace.bcolverd/2024-ESL-BiomassSAR/src/sweep_configs/tomo_recon.yaml
