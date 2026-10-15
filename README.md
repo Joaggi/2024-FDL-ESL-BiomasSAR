@@ -3,6 +3,7 @@
 <p>
   1.<a href="https://arxiv.org/abs/2411.12897"><img src="http://img.shields.io/badge/Paper-PDF-brightgreen.svg"></a>
   2.<a href="https://arxiv.org/abs/2412.00903"><img src="http://img.shields.io/badge/Paper-PDF-brightgreen.svg"></a>
+  2.<a href="https://arxiv.org/abs/2409.05636"><img src="http://img.shields.io/badge/Paper-PDF-brightgreen.svg"></a>
   <a href="https://github.com/Joaggi/Robust-kernels-for-robust-location-estimation/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg">
   </a>
@@ -72,10 +73,10 @@ CACHE_DIR=/path/to/cache/dir
   year={2024}
 }
 
-@article{grace2024tree,
-  title={Tree Species Classification using Machine Learning and 3D Tomographic SAR--a case study in Northern Europe},
-  author={Grace, Colverd and Laura, Schade and Jumpei, Takami and Karol, Bot and Joseph, Gallego},
-  journal={arXiv preprint arXiv:2411.12897},
+@article{colverd20243d,
+  title={3D-SAR tomography and machine learning for high-resolution tree height estimation},
+  author={Colverd, Grace and Takami, Jumpei and Schade, Laura and Bot, Karol and Gallego-Mejia, Joseph A},
+  journal={arXiv preprint arXiv:2409.05636},
   year={2024}
 }
 
